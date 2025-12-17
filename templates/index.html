@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Job Application Tracker</h1>
+
+<a href="{{ url_for('add') }}">Add New Job</a>
+<br><br>
+
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job['company'] }}</td>
+            <td>{{ job['role'] }}</td>
+            <td>{{ job['location'] }}</td>
+            <td>{{ job['status'] }}</td>
+            <td>
+                <form action="{{ url_for('update', id=job['id']) }}" method="POST" style="display:inline;">
+                    <select name="status">
+                        <option value="Applied" {% if job['status'] == 'Applied' %}selected{% endif %}>Applied</option>
+                        <option value="Interview" {% if job['status'] == 'Interview' %}selected{% endif %}>Interview</option>
+                        <option value="Rejected" {% if job['status'] == 'Rejected' %}selected{% endif %}>Rejected</option>
+                        <option value="Offer" {% if job['status'] == 'Offer' %}selected{% endif %}>Offer</option>
+                    </select>
+                    <button type="submit">Update</button>
+                </form>
+
+                <a href="{{ url_for('delete', id=job['id']) }}"
+                   onclick="return confirm('Delete this job?')">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
