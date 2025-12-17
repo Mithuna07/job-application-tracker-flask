@@ -43,3 +43,12 @@ http://127.0.0.1:5000
 Software Developer (Python)
 GitHub: https://github.com/Mithuna07  
 Email: mithunaa0@gmail.com
+
+
+## 📸 Screenshots
+
+### Home Page
+![Home Page](screenshots/home.png)
+
+### Add Job Page
+![Add Job Page](screenshots/add-job.png)
