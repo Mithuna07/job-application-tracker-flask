@@ -34,3 +34,12 @@ pip install -r requirements.txt
 python app.py
 Open the application in your browser at:
 http://127.0.0.1:5000
+
+---
+
+## 👤 Author
+
+**Mithuna A**  
+Software Developer (Python)
+GitHub: https://github.com/Mithuna07  
+Email: mithunaa0@gmail.com
